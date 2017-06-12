@@ -4,7 +4,7 @@ import h5py
 import math
 import os
 import scipy.io as sio              # I/O
-
+from keras.utils.np_utils import to_categorical
 
 
 
@@ -22,8 +22,8 @@ def fLoadData(conten):
 		X_train = X_train[pIdx]
 		y_train = y_train[pIdx]
 	print 'X_train not empty'
-	y_train = np.asarray([y_train[:, 0], np.abs(np.asarray(y_train[:, 0], dtype=np.float32) - 1)]).T
-	y_test = np.asarray([y_test[:, 0], np.abs(np.asarray(y_test[:, 0], dtype=np.float32) - 1)]).T
+	y_train = to_categorical(y_train,10)
+	y_test = to_categorical(y_test,10)
 	return X_train, y_train, X_test, y_test
 
 

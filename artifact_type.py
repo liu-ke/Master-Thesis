@@ -57,7 +57,7 @@ def createModel(patchSize):
 
 	cnn.add(Flatten())
 
-	cnn.add(Dense(output_dim=2,
+	cnn.add(Dense(output_dim=10,
 	              init='normal',
 	              # activation = 'sigmoid',
 	              W_regularizer='l2'))

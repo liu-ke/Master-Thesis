@@ -14,7 +14,7 @@ import argparse
 
 from hyperopt import Trials, STATUS_OK, tpe
 from hyperas import optim
-from loadmat import *
+import loadmat
 
 
 # input parsing
@@ -36,7 +36,7 @@ if os.path.isfile(args.outPath[0]):
     print('Warning! Output file is already existing and will be overwritten')
 
 # load input data
-dData = fLoadMat(args.inPath[0])
+dData = loadmat.fLoadMat(args.inPath[0])
 # save path for keras model
 if 'outPath' in dData:
     sOutPath = dData['outPath']

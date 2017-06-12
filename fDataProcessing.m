@@ -92,7 +92,7 @@ iPats = [];
 
 for iPat = 1:length(sPats)
     fprintf('Pat %d/%d', iPat, length(sPats));
-    if(strcmp(sPats(iPat).name,'az_old')||strcmp(sPats(iPat).name,'cb')) % !!!!!!!!!!!!!! >> Data missing
+    if(~isempty(regexp(sPats(iPat).name,'old', 'once'))||strcmp(sPats(iPat).name,'cb')) % !!!!!!!!!!!!!! >> Data missing
         continue;
     end
     for iJ=1:size(sDataAll,2) % ref and artefact
