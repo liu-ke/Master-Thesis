@@ -159,7 +159,7 @@ if(strcmp(sSplitting,'normal'))
 
     % call python
     fSetGPU( iGPU );
-    system(sprintf('python2 cnn_main.py -i %s -o %s -m %s -t -p %s', sPathMat, [sPathOut,filesep,'out_normal'], sModel, sOpti));
+    system(sprintf('python2 CNN_main.py -i %s -o %s -m %s -t -p %s', sPathMat, [sPathOut,filesep,'out_normal'], sModel, sOpti));
 elseif(strcmp(sSplitting,'crossvalidation_data'))
     if(exist([sPathOut,filesep, num2str(patchSize(1)), num2str(patchSize(2)), filesep, 'data',filesep, 'iFolds.mat'], 'file'))
         load([sPathOut,filesep, num2str(patchSize(1)), num2str(patchSize(2)), filesep, 'data',filesep, 'iFolds.mat']);
@@ -193,7 +193,7 @@ elseif(strcmp(sSplitting,'crossvalidation_data'))
         
         % call python
         fSetGPU( iGPU );
-        system(sprintf('python2 cnn_main.py -i %s -o %s -m %s -t -p %s', sPathMat, [sPathOutCurr,filesep,'outcrossVal_data',num2str(iFold,'%02d')], sModel, sOpti));
+        system(sprintf('python2 CNN_main.py -i %s -o %s -m %s -t -p %s', sPathMat, [sPathOutCurr,filesep,'outcrossVal_data',num2str(iFold,'%02d')], sModel, sOpti));
 
     end
     
@@ -225,7 +225,7 @@ elseif(strcmp(sSplitting,'crossvalidation_patient'))
         
         % call python
         fSetGPU( iGPU );
-        system(sprintf('python2 cnn_main.py -i %s -o %s -m %s -t -p %s', sPathMat, [sPathOutCurr,filesep,'outcrossVal',num2str(iPat,'%02d')], sModel, sOpti));
+        system(sprintf('python2 CNN_main.py -i %s -o %s -m %s -t -p %s', sPathMat, [sPathOutCurr,filesep,'outcrossVal',num2str(iPat,'%02d')], sModel, sOpti));
     end
 end
 
